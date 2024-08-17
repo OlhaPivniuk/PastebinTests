@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI; // Переконайтеся, що цей простір імен імпортовано
-using System;
+using OpenQA.Selenium.Support.UI;
 
 namespace PastebinTests.PageObjects
 {
@@ -12,10 +11,9 @@ namespace PastebinTests.PageObjects
         public PastePage(IWebDriver driver)
         {
             _driver = driver;
-            _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10)); // Налаштуйте тайм-аут за потреби
+            _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10)); 
         }
 
-        // Web elements
         private IWebElement ExpirationDropdown => _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector("select#expiration")));
         private IWebElement DescriptionField => _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("description")));
         private IWebElement TitleField => _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Name("paste[section1][name]")));
@@ -23,9 +21,6 @@ namespace PastebinTests.PageObjects
 
         private IWebElement CreatePasteButton => _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//input[@type='submit']")));
 
-
-
-        // Actions
         public void SelectExpiration(string expiration)
         {
             var selectElement = new SelectElement(ExpirationDropdown);
@@ -35,8 +30,7 @@ namespace PastebinTests.PageObjects
         public void EnterDescription(string description)
         {
             DescriptionField.SendKeys(description);
-        }
-               
+        }               
 
         public void EnterTitle(string title)
         {

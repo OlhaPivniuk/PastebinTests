@@ -1,11 +1,6 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using PastebinTests.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PastebinTests.Tests
 {
@@ -32,7 +27,6 @@ namespace PastebinTests.Tests
             _pastePage.EnterContent("helloweb");
             _pastePage.ClickCreatePaste();
 
-            // Validate successful creation if needed, e.g., check for specific URL or content
             Assert.IsTrue(_driver.Url.Contains("paste.ee/p/"));
         }
 
