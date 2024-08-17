@@ -5,12 +5,10 @@ namespace PastebinTests.PageObjects
 {
     public class PastePage
     {
-        private readonly IWebDriver _driver;
         private readonly WebDriverWait _wait;
 
         public PastePage(IWebDriver driver)
         {
-            _driver = driver;
             _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10)); 
         }
 
